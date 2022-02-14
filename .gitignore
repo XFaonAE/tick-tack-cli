@@ -1,0 +1,23 @@
+# NexoJS
+dist/
+packages/**/dist/
+
+# NodeJS
+node_modules/
+packages/**/node_modules/
+
+# NextJS
+.next/
+packages/**/.next/
+
+# Debug
+debug/
+packages/**/debug/
+
+# Lock Files
+yarn.lock
+packages/**/yarn.lock
+package-lock.json
+packages/**/package-lock.json
+pnpm-lock.yaml
+packages/**/pnpm-lock.yaml

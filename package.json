@@ -1,0 +1,19 @@
+{
+    "name": "@xfaonae/tick-tack-cli",
+    "version": "1.0.0-dev",
+    "author": "XFaonAE",
+    "license": "Apache 2.0",
+    "description": "Tick tac toe in the cli",
+    "type": "module",
+    "workspaces": [
+        "./packages/tick-cli",
+        "./packages/tick-demo"
+    ],
+    "scripts": {
+        "watch": "nexojs watch",
+        "build": "nexojs build"
+    },
+    "devDependencies": {
+        "nexojs": "^1.0.0-dev.12"
+    }
+}
