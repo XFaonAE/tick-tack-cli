@@ -16,6 +16,10 @@ export default class TickTac extends Anime {
             0, 0, 0,
         ];
 
+    #finalWin = [0, 0, 0];
+
+    #won = false;
+
     public constructor() {
         super();
 
@@ -76,25 +80,31 @@ export default class TickTac extends Anime {
                 let win = false;
 
                 winingPoss.forEach((poss) => {
-                     if (
-                        this.#gameBoard[poss[0]] === playerNumber &&
-                        this.#gameBoard[poss[1]] === playerNumber &&
-                        this.#gameBoard[poss[2]] === playerNumber
+                    if (
+                        this.#gameBoard[poss[0]] === playerNumber
+                        && this.#gameBoard[poss[1]] === playerNumber
+                        && this.#gameBoard[poss[2]] === playerNumber
                     ) {
+                        this.#finalWin = poss;
                         win = true;
                     }
                 });
 
                 return win;
-            }
+            };
 
             if (checkWin(1)) {
-                console.log("Player 1 wins!");
+                this.#won = true;
+                this.#render();
+                console.log('Player 1 wins!');
                 process.exit(0);
             } else if (checkWin(2)) {
-                console.log("Player 2 wins!");
+                this.#won = true;
+                this.#render();
+                console.log('Player 2 wins!');
                 process.exit(0);
             } else if (this.#gameBoard.filter((value) => value === 0).length === 0) {
+                this.#render();
                 console.log("It's a draw!");
                 process.exit(0);
             }
@@ -147,10 +157,12 @@ export default class TickTac extends Anime {
                 result = 'O';
             }
 
+            if (this.#won && this.#finalWin.includes(index)) {
+                result = CommandLine.color.withHex('#ff5555', result);
+            }
+
             if (indexColumn === this.#currentMousePosition.x && indexRow === this.#currentMousePosition.y) {
                 result = CommandLine.color.underline(result);
-
-                return result;
             }
 
             return result;
@@ -161,7 +173,7 @@ export default class TickTac extends Anime {
             `   ${getPiece(0)}   ${getPiece(1)}   ${getPiece(2)}   |`,
             `   ${getPiece(3)}   ${getPiece(4)}   ${getPiece(5)}   |`,
             `   ${getPiece(6)}   ${getPiece(7)}   ${getPiece(8)}   |`,
-            `   ------------`
+            '   ------------',
         ];
 
         this.renderLines(lines);
