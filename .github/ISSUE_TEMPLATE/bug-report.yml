@@ -17,6 +17,6 @@ body:
       description: What Nexo module is the bug occurring?
       multiple: true
       options:
-        - "`@nexo-stack/cli`"
+        - "@nexo-stack/cli"
     validations:
       required: true
