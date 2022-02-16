@@ -1,0 +1,20 @@
+name: 🪲 Bug Report
+description: File a bug report
+title: "[bug] "
+labels: [ "bug", "triage" ]
+assignees:
+  - sudo-carson
+  - XFaonAE
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: dropdown
+    id: modules
+    attributes:
+      label: Module(s)
+      description: What Nexo module is the bug occurring?
+      multiple: true
+      options:
+        - label: "`@nexo-stack/cli`"
