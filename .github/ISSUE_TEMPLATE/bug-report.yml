@@ -10,6 +10,13 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please ensure you've completed all of the following.
+      options:
+        - label: I agree to follow the [Code of Conduct](https://github.com/skylixgh/nexo/)
   - type: dropdown
     id: modules
     attributes:
